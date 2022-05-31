@@ -5521,6 +5521,7 @@ export interface WebhookMessageOptions extends Omit<MessageOptions, 'reply' | 's
   username?: string;
   avatarURL?: string;
   threadId?: Snowflake;
+  threadName?: string;
 }
 
 export interface WebSocketOptions {
