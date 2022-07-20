@@ -1699,6 +1699,7 @@ export class Message<Cached extends boolean = boolean> extends Base {
   public pinned: boolean;
   public reactions: ReactionManager;
   public stickers: Collection<Snowflake, Sticker>;
+  public position: number | null;
   public system: boolean;
   public get thread(): AnyThreadChannel | null;
   public tts: boolean;
@@ -2512,6 +2513,7 @@ export class ThreadChannel extends TextBasedChannelMixin(BaseChannel, ['fetchWeb
   public get sendable(): boolean;
   public memberCount: number | null;
   public messageCount: number | null;
+  public totalMessageSent: number | null;
   public members: ThreadMemberManager;
   public name: string;
   public ownerId: Snowflake | null;
@@ -3137,6 +3139,8 @@ export enum DiscordjsErrorCodes {
   NotImplemented,
 
   SweepFilterReturn,
+
+  GuildForumMessageRequired,
 }
 
 export interface DiscordjsErrorFields<Name extends string> {
@@ -3576,7 +3580,7 @@ export class GuildTextThreadManager<AllowedThreadType> extends ThreadManager {
   public create(options: GuildTextThreadCreateOptions<AllowedThreadType>): Promise<ThreadChannel>;
 }
 
-export class GuildForumThreadManger extends ThreadManager {
+export class GuildForumThreadManager extends ThreadManager {
   public create(options: GuildForumThreadCreateOptions): Promise<ThreadChannel>;
 }
 

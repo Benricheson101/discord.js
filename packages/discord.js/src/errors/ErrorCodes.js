@@ -295,4 +295,6 @@ module.exports = createEnum([
   'NotImplemented',
 
   'SweepFilterReturn',
+
+  'GuildForumMessageRequired',
 ]);
