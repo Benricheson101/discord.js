@@ -54,10 +54,7 @@ class ChannelManager extends CachedManager {
       return null;
     }
 
-    if (cache && !allowUnknownGuild) {
-      if (channel.type === ChannelType.GuildForum) console.log('settings forum');
-      this.cache.set(channel.id, channel);
-    }
+    if (cache && !allowUnknownGuild) this.cache.set(channel.id, channel);
 
     return channel;
   }

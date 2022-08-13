@@ -67,7 +67,6 @@ function createChannel(client, data, guild, { allowUnknownGuild, fromInteraction
           channel = new (getDirectoryChannel())(guild, data, client);
           break;
         case ChannelType.GuildForum:
-          console.log('new forum:', data.id, data.name);
           channel = new (getForumChannel())(guild, data, client);
           break;
       }
