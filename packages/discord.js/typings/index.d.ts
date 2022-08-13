@@ -5429,7 +5429,8 @@ export type Channel =
   | StageChannel
   | TextChannel
   | AnyThreadChannel
-  | VoiceChannel;
+  | VoiceChannel
+  | GuildForumChannel;
 
 export type TextBasedChannel = Extract<Channel, { messages: MessageManager }>;
 
