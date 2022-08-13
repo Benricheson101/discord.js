@@ -720,7 +720,7 @@ export interface MappedChannelCategoryTypes {
   [ChannelType.GuildVoice]: VoiceChannel;
   [ChannelType.GuildText]: TextChannel;
   [ChannelType.GuildStageVoice]: StageChannel;
-  [ChannelType.GuildForum]: never; // TODO: Fix when guild forums come out
+  [ChannelType.GuildForum]: GuildForumChannel; // TODO: Fix when guild forums come out
 }
 
 export type CategoryChannelType = Exclude<
@@ -2477,6 +2477,10 @@ export class TextChannel extends BaseGuildTextChannel {
   public rateLimitPerUser: number;
   public threads: GuildTextThreadManager<AllowedThreadTypeForTextChannel>;
   public type: ChannelType.GuildText;
+}
+
+export class GuildForumChannel extends GuildChannel {
+  public threads: GuildForumThreadManager;
 }
 
 export type AnyThreadChannel = PublicThreadChannel | PrivateThreadChannel;

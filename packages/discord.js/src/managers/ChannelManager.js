@@ -1,7 +1,7 @@
 'use strict';
 
 const process = require('node:process');
-const { Routes } = require('discord-api-types/v10');
+const { Routes, ChannelType } = require('discord-api-types/v10');
 const CachedManager = require('./CachedManager');
 const { BaseChannel } = require('../structures/BaseChannel');
 const { createChannel } = require('../util/Channels');
@@ -54,7 +54,10 @@ class ChannelManager extends CachedManager {
       return null;
     }
 
-    if (cache && !allowUnknownGuild) this.cache.set(channel.id, channel);
+    if (cache && !allowUnknownGuild) {
+      if (channel.type === ChannelType.GuildForum) console.log('settings forum');
+      this.cache.set(channel.id, channel);
+    }
 
     return channel;
   }
