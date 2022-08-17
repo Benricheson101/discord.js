@@ -53,7 +53,7 @@ class GuildForumThreadManager extends ThreadManager {
     const messagePayload =
       message instanceof MessagePayload ? message.resolveBody() : MessagePayload.create(this, message);
 
-    const { body, files } = messagePayload.resolveFiles();
+    const { body, files } = messagePayload.resolveBody();
 
     if (autoArchiveDuration === 'MAX') autoArchiveDuration = resolveAutoArchiveMaxLimit(this.channel.guild);
 

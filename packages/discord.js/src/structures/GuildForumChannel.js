@@ -10,6 +10,7 @@ const GuildForumThreadManager = require('../managers/GuildForumThreadManager');
 class GuildForumChannel extends GuildChannel {
   constructor(guild, data, client) {
     super(guild, data, client, false);
+    super._patch(data);
 
     /**
      * A manager of the threads belonging to this channel
